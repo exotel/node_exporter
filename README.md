@@ -33,6 +33,7 @@ stat | Exposes various statistics from `/proc/stat`. This includes CPU usage, bo
 textfile | Exposes statistics read from local disk. The `--collector.textfile.directory` flag must be set. | _any_
 time | Exposes the current system time. | _any_
 vmstat | Exposes statistics from `/proc/vmstat`. | Linux
+procstat | Exposes process statistics like PID & memory from `/proc/$PID/status`. By default, only hekad is enabled. Add more processes via `--collector.procstats.registered-processes` flag | Linux
 
 
 ### Disabled by default
