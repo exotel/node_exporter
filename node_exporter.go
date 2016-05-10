@@ -24,14 +24,14 @@ import (
 	"sync"
 	"time"
 
+	"github.com/mohanarpit/node_exporter/collector"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/version"
-	"github.com/prometheus/node_exporter/collector"
 )
 
 const (
-	defaultCollectors = "conntrack,cpu,diskstats,entropy,filefd,filesystem,loadavg,mdadm,meminfo,netdev,netstat,sockstat,stat,textfile,time,uname,vmstat"
+	defaultCollectors = "procstats,conntrack,cpu,diskstats,entropy,filefd,filesystem,loadavg,mdadm,meminfo,netdev,netstat,sockstat,stat,textfile,time,uname,vmstat"
 )
 
 var (
@@ -141,7 +141,6 @@ func main() {
 			collectorNames = append(collectorNames, n)
 		}
 		collectorNames.Sort()
-		fmt.Printf("Available collectors:\n")
 		for _, n := range collectorNames {
 			fmt.Printf(" - %s\n", n)
 		}
